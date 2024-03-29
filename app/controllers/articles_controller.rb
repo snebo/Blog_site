@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
   end
+
   def update
     @article = Article.find(params[:id])
     # move to the article after update
@@ -33,6 +34,13 @@ class ArticlesController < ApplicationController
     else
       render :edit, status: :unporcessable_entity
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to rooth_path, status: :see_other
   end
 
   # def skip-routes
