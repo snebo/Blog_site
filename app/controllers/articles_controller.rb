@@ -22,6 +22,19 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+  def update
+    @article = Article.find(params[:id])
+    # move to the article after update
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unporcessable_entity
+    end
+  end
+
   # def skip-routes
   # end
 
