@@ -11,3 +11,31 @@
                                                           }%>
   </li>
 </ul>
+<%# showing old comments %>
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <%# ideally, i should destroy empty comments %>
+  <%# TODO: destroy the empty comments %>
+  <% next if comment.commenter == ''%>
+  <p>
+    <strong>Commenter: </strong>
+    <%= comment.commenter%>
+  </p>
+  <p>
+    <strong>Comment: </strong>
+    <%= comment.body%>
+  </p>
+<%end%>
+<%# adding new comments %>
+<h2>Add a comment:</h2>
+<%= form_with model: [@article, @article.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%== form.text_area :body %>
+  </p>
+  <%= form.submit %>
+<%end%>
