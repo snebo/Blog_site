@@ -44,4 +44,41 @@
   background-color: black;
 }
 
+/* styling for the home page */
+.main{
+  padding: 30px;
+  font-size: 1.2em;
+  line-height: 2.3em;
+}
+#page_title{font-size: 2.5em;  letter-spacing: 3px;text-shadow: 2px 3px #ccc;}
+#page_content{
+  text-align: justify;
+  line-height: 2em;
+}
+.articles{
+  list-style-type: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+  grid-template-rows: repeat(3, 1fr);
+  padding:10px 0;
+}
+.articles>li{
+  border: 1px solid black;
+  padding:5px;
+  border-radius: 8px;
+  box-shadow: 2px 2px #ccc;
+  transition: 150ms;
+}
+.articles>li:hover{
+  scale: 1.02;
+  color: black
+}
+.article_title a{
+  text-decoration: none;
+  color: #333;
+}
+.article_body{
+  line-height: 1.6em;
+}
 
