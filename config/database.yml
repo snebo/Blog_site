@@ -5,21 +5,37 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  # adapter: sqlite3
+  adapter: cockroachdb
+  host: project-cluster-5469.6zw.aws-eu-west-1.cockroachlabs.cloud
+  port: 26257
+  username: stefano
+  password: 41vbeBiXMppfr9aaNS_-WQ
+  database: defaultdb
+  sslmode: require
+
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: defaultdb
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: storage/test.sqlite3
+  database: defaultdb
 
-production:
-  <<: *default
-  database: storage/production.sqlite3
+# production:
+#   <<: *default
+#   database: storage/production.sqlite3
+
+production: 
+  adapter: cockroachdb
+  host: project-cluster-5469.6zw.aws-eu-west-1.cockroachlabs.cloud
+  port: 26257
+  username: stefano
+  password: 41vbeBiXMppfr9aaNS_-WQ
+  database: defaultdb
