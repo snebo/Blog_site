@@ -5,14 +5,8 @@
 #   gem "sqlite3"
 #
 default: &default
-  # adapter: sqlite3
-  adapter: cockroachdb
-  host: project-cluster-5469.6zw.aws-eu-west-1.cockroachlabs.cloud
-  port: 26257
-  username: stefano
-  password: 41vbeBiXMppfr9aaNS_-WQ
-  database: defaultdb
-  sslmode: require
+  adapter: postgresql
+  url: <%= ENV["DATABASE_URL"] %>
 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
