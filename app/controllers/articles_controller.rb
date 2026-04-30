@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
-      render :new, status: :unporcessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      render :edit, status: :unporcessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to rooth_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   # def skip-routes

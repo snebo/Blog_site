@@ -13,7 +13,7 @@
     <%=form.text_area :body %>
     <%article.errors.full_messages_for(:body).each do |message| %>
       <div>
-        <%message %>
+        <%= message %>
       </div>
     <%end%>
   </div>

@@ -27,9 +27,5 @@ test:
 #   database: storage/production.sqlite3
 
 production: 
-  adapter: cockroachdb
-  host: project-cluster-5469.6zw.aws-eu-west-1.cockroachlabs.cloud
-  port: 26257
-  username: stefano
-  password: 41vbeBiXMppfr9aaNS_-WQ
-  database: defaultdb
+  adapter: postgresql
+  url: <%= ENV["DATABASE_URL"] %>
